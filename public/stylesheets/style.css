@@ -113,7 +113,6 @@ label {
   padding: 0;
 }    
 
-
 #sidebar {
   position: fixed;
   width: 10em;
@@ -123,6 +122,14 @@ label {
   bottom: 1.5em;
   left: 0;
   background-color: #C3C3E5
+}
+
+#sidebar ul {
+    margin-left: auto;
+    margin-right: auto;
+    border: dotted 1px;
+    width: 9em;
+    float: right;
 }
 
 #main {
@@ -150,7 +157,6 @@ label {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  
 }
 
 #footer h1 {
@@ -163,4 +169,3 @@ label {
 #footer p {
     display:inline;
 }
-
