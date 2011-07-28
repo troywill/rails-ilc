@@ -1,0 +1,39 @@
+<%= form_for(@item) do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br />
+    <%= f.text_field :note %>
+  </div>
+  <div class="field">
+    <%= f.label :location_id %><br />
+    <%= f.text_field :location_id %>
+  <p>
+  <label for="item_location_id">Location</label>
+  <%= select( "item", "location_id", Location.find(:all, :order => "name" ).collect { |l| [l.name, l.id] } ) %>
+</p>
+  </div>
+  <p>
+  <% for category in Category.find(:all, :order => "name" ) %>
+    <%= check_box_tag "item[category_ids][]", category.id, @item.categories.include?(category) %><%= category.name %><br/>
+  <% end %>
+</p>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
