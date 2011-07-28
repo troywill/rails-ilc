@@ -12,27 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :item_name %> <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :note %><br />
-    <%= f.text_field :note %>
+    <%= f.label :item_note %> <%= f.text_field :note %>
   </div>
   <div class="field">
-    <%= f.label :location_id %><br />
-    <%= f.text_field :location_id %>
-  <p>
-  <label for="item_location_id">Location</label>
+    <label for="item_location_id">Location</label>
   <%= select( "item", "location_id", Location.find(:all, :order => "name" ).collect { |l| [l.name, l.id] } ) %>
-</p>
-  </div>
   <p>
+    <label for="item_categories">Categories</label><br />
   <% for category in Category.find(:all, :order => "name" ) %>
     <%= check_box_tag "item[category_ids][]", category.id, @item.categories.include?(category) %><%= category.name %><br/>
   <% end %>
 </p>
-
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
