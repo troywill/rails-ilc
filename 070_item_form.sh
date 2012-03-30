@@ -1,4 +1,4 @@
-FORM_PARTIAL="../../../app/views/items/_form.html.erb"
+FORM_PARTIAL="../../app/views/items/_form.html.erb"
 cat >> ${FORM_PARTIAL} <<HERE
 
 <p>
